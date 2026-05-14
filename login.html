@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login | ClassMind</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-card glass-panel">
+            <div class="brand-logo">ClassMind</div>
+            <p>Teacher Engagement Portal</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" class="input-control" placeholder="teacher@school.edu" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" class="input-control" placeholder="••••••••" required>
+                </div>
+                <div id="error-msg" class="error-msg">Invalid credentials. Please try again.</div>
+                
+                <button type="submit" id="loginBtn" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Sign In Securely
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="supabaseClient.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
