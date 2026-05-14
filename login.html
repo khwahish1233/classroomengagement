@@ -6,6 +6,12 @@
     <title>Teacher Login | ClassMind</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // If already logged in, skip the login page
+        if (localStorage.getItem('classmind_token')) {
+            window.location.href = './index.html';
+        }
+    </script>
 </head>
 <body>
     <div class="login-wrapper">

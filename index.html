@@ -13,55 +13,71 @@
         <aside class="sidebar">
             <div class="brand-logo" style="font-size: 1.8rem;">ClassMind</div>
             <nav class="nav-links">
-                <a href="#" class="nav-item active">🚀 Engagement Studio</a>
-                <a href="#" class="nav-item">📊 Analytics</a>
+                <a href="#" class="nav-item active" id="navEngagement">🚀 Engagement Studio</a>
+                <a href="#" class="nav-item" id="navAnalytics">📊 Analytics</a>
                 <a href="#" class="nav-item">⚙️ Settings</a>
-                <a href="#" class="nav-item" id="logoutBtn" style="margin-top: auto;">🚪 Sign Out</a>
             </nav>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="header">
-                <div>
-                    <h1>Engagement Studio</h1>
-                    <p style="color: var(--text-muted);">Interact and assess student understanding in real-time.</p>
-                </div>
-                <div class="user-profile">
-                    <div class="avatar">T</div>
-                    <span>Teacher Portal</span>
-                </div>
-            </header>
+            <!-- Engagement View -->
+            <div id="engagementView">
+                <header class="header">
+                    <div>
+                        <h1>Engagement Studio</h1>
+                        <p style="color: var(--text-muted);">Interact and assess student understanding in real-time.</p>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar">T</div>
+                        <span>Teacher Portal</span>
+                    </div>
+                </header>
 
-            <div class="grid-container">
-                <!-- Engagement Actions -->
-                <div class="engagement-panel glass-panel">
-                    <h2>Launch Activity</h2>
-                    
-                    <div class="poll-creator">
-                        <input type="text" id="pollQuestion" class="poll-input" placeholder="Ask a question to the class...">
-                        
-                        <div class="poll-options">
-                            <input type="text" id="optionA" class="poll-option-input" placeholder="Option A">
-                            <input type="text" id="optionB" class="poll-option-input" placeholder="Option B">
+                <div class="grid-container">
+                    <div class="engagement-panel glass-panel">
+                        <h2>Launch Activity</h2>
+                        <div class="poll-creator">
+                            <input type="text" id="pollQuestion" class="poll-input" placeholder="Ask a question to the class...">
+                            <div class="poll-options">
+                                <input type="text" id="optionA" class="poll-option-input" placeholder="Option A">
+                                <input type="text" id="optionB" class="poll-option-input" placeholder="Option B">
+                            </div>
+                            <button class="btn-primary" id="launchPollBtn">🚀 Launch Live Poll</button>
                         </div>
-                        
-                        <button class="btn-primary" id="launchPollBtn">🚀 Launch Live Poll</button>
+                        <div class="poll-creator" style="margin-bottom: 0;">
+                            <input type="text" id="announcementMsg" class="poll-input" placeholder="Broadcast a quick message...">
+                            <button class="btn-primary" id="broadcastBtn" style="background: var(--secondary);">📢 Send Announcement</button>
+                        </div>
                     </div>
 
-                    <div class="poll-creator" style="margin-bottom: 0;">
-                        <input type="text" id="announcementMsg" class="poll-input" placeholder="Broadcast a quick message...">
-                        <button class="btn-primary" id="broadcastBtn" style="background: var(--secondary);">📢 Send Announcement</button>
+                    <div class="live-feed glass-panel">
+                        <h2>Live Students</h2>
+                        <p style="font-size: 0.875rem; color: var(--success);">● Active Session (Mock Data)</p>
+                        <div class="student-list" id="studentList"></div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Live Feed -->
-                <div class="live-feed glass-panel">
-                    <h2>Live Students</h2>
-                    <p style="font-size: 0.875rem; color: var(--success);">● Active Session (Mock Data)</p>
-                    
-                    <div class="student-list" id="studentList">
+            <!-- Analytics View -->
+            <div id="analyticsView" class="hidden">
+                <header class="header">
+                    <div>
+                        <h1>Analytics History</h1>
+                        <p style="color: var(--text-muted);">Review all previous polls and announcements saved to Supabase.</p>
+                    </div>
+                    <button class="btn-primary" id="refreshAnalytics" style="background: var(--secondary);">🔄 Refresh Data</button>
+                </header>
+
+                <div class="glass-panel" style="padding: 2rem;">
+                    <div class="analytics-table-header">
+                        <span>Type</span>
+                        <span>Content</span>
+                        <span>Date & Time</span>
+                    </div>
+                    <div id="analyticsList" class="analytics-list">
                         <!-- Populated by JS -->
+                        <p style="text-align: center; color: var(--text-muted); padding: 2rem;">No data found. Launch an activity to see it here!</p>
                     </div>
                 </div>
             </div>
